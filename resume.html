@@ -1,0 +1,226 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ashika C - Resume</title><link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+<style>
+    :root {
+        --light-bg: #f5f6fa;
+        --light-text: #000;
+        --light-accent: #3498db;
+        --dark-bg: #1a1a1a;
+        --dark-text: #fff;
+        --dark-accent: #64ffda;
+    }
+
+    [data-theme="light"] {
+        --bg: var(--light-bg);
+        --text: var(--light-text);
+        --accent: var(--light-accent);
+    }
+
+    [data-theme="dark"] {
+        --bg: var(--dark-bg);
+        --text: var(--dark-text);
+        --accent: var(--dark-accent);
+    }
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: 'Segoe UI', sans-serif;
+        background: var(--bg);
+        color: var(--text);
+        min-height: 100vh;
+        transition: .3s;
+    }
+
+    .pattern {
+        position: fixed;
+        inset: 0;
+        background:
+            linear-gradient(
+                45deg,
+                transparent 48%,
+                var(--accent) 49%,
+                var(--accent) 51%,
+                transparent 52%
+            ) 0 0/50px 50px;
+        opacity: .08;
+        z-index: -1;
+    }
+
+    .theme-toggle {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        border: none;
+        background: transparent;
+        color: var(--text);
+        font-size: 1.5rem;
+        cursor: pointer;
+        z-index: 1000;
+    }
+
+    .social-links {
+        position: fixed;
+        left: 35px;
+        top: 50%;
+        transform: translateY(-50%);
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        z-index: 1000;
+    }
+
+    .social-link {
+        color: var(--text);
+        font-size: 1.5rem;
+        transition: .3s;
+    }
+
+    .social-link:hover {
+        color: var(--accent);
+        transform: scale(1.15);
+    }
+
+    .container {
+        max-width: 1200px;
+        margin: auto;
+        padding: 30px 90px;
+    }
+
+    header {
+        text-align: center;
+        margin-bottom: 25px;
+    }
+
+    h1 {
+        font-size: 3rem;
+    }
+
+    .subtitle {
+        margin-top: 10px;
+        opacity: .8;
+    }
+
+    .resume-container {
+        background: white;
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(0,0,0,.15);
+        height: 85vh;
+    }
+
+    iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+    }
+
+    .download-btn {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background: var(--accent);
+        color: white;
+        text-decoration: none;
+        padding: 12px 18px;
+        border-radius: 10px;
+        font-weight: bold;
+        z-index: 1000;
+    }
+
+    @media(max-width:768px){
+
+        .social-links{
+            position: relative;
+            flex-direction: row;
+            justify-content: center;
+            left: 0;
+            top: 0;
+            transform: none;
+            margin-bottom: 20px;
+        }
+
+        .container{
+            padding:20px;
+        }
+
+        h1{
+            font-size:2rem;
+        }
+
+        .resume-container{
+            height:70vh;
+        }
+    }
+</style>
+
+</head><body><div class="pattern"></div>
+
+<button class="theme-toggle">
+    <i class="fas fa-moon"></i>
+</button>
+
+<div class="social-links">
+
+    <!-- PUT YOUR LINKEDIN URL -->
+    <a href="#" target="_blank" class="social-link">
+        <i class="fab fa-linkedin"></i>
+    </a>
+
+    <!-- PUT YOUR GITHUB URL -->
+    <a href="#" target="_blank" class="social-link">
+        <i class="fab fa-github"></i>
+    </a>
+
+    <a href="mailto:ashikac857@gmail.com" class="social-link">
+        <i class="fas fa-envelope"></i>
+    </a>
+
+</div>
+
+<a href="Ashika.pdf" class="download-btn" download>
+    <i class="fas fa-file-pdf"></i> Resume
+</a>
+
+<div class="container">
+
+    <header>
+        <h1>Ashika C</h1>
+        <p class="subtitle">
+            Computer Science Student | Kumaraguru College of Technology
+        </p>
+    </header>
+
+    <div class="resume-container">
+        <iframe src="Ashika.pdf#toolbar=0"></iframe>
+    </div>
+
+</div>
+
+<script>
+    const themeToggle = document.querySelector('.theme-toggle');
+    const html = document.documentElement;
+
+    themeToggle.addEventListener('click', () => {
+        const current = html.getAttribute('data-theme');
+
+        if (current === 'light') {
+            html.setAttribute('data-theme', 'dark');
+            themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+        } else {
+            html.setAttribute('data-theme', 'light');
+            themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
+        }
+    });
+</script>
+
+</body>
+</html>
